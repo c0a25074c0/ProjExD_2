@@ -40,12 +40,15 @@ def gameover(screen: pg.Surface) -> None:
     kukei = pg.Surface((1100,650))  # 空のsurfaceの作成
     pg.draw.rect(kukei, (0,0,0), (0, 0, WIDTH, HEIGHT))  # 黒い矩形の描画
     kukei.set_alpha(200)  # １のSurfaceの透明度の設定
+
     fonto = pg.font.Font(None,80)  # フォントサイズの設定
     txt = fonto.render("Game Over", True, (255,255,255))  # 白文字でGame Overと書かれたフォントSurfaceの作成
     kukei.blit(txt, (400,300))  # １のSurfaceにblit
+
     kk_img2 = pg.image.load("fig/8.png")  # こうかとんの画像のロード
     kukei.blit(kk_img2, (340,290))  # こうかとんの座標の設定
     kukei.blit(kk_img2, (710,290))  #こうかとんの座標の設定
+    
     screen.blit(kukei, (0,0))  # SurfaceをスクリーンSurfaceに転送
     pg.display.update()  # 画面の更新
     time.sleep(5)  # 画面を５秒表示
