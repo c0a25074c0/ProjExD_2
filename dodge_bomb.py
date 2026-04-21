@@ -36,7 +36,7 @@ def gameover(screen: pg.Surface) -> None:
     画面全体を半透明の黒い矩形で覆い、中央に「Game Over」と
     泣いているこうかとんの画像を表示する。
     """
-    
+
     kukei = pg.Surface((1100,650))
     pg.draw.rect(kukei, (0,0,0), (0, 0, WIDTH, HEIGHT))
     kukei.set_alpha(200)
@@ -44,7 +44,6 @@ def gameover(screen: pg.Surface) -> None:
     txt = fonto.render("Game Over", True, (255,255,255))
     kukei.blit(txt, (400,300))
     kk_img2 = pg.image.load("fig/8.png")
-    
     kukei.blit(kk_img2, (340,290))
     kukei.blit(kk_img2, (710,290))
     screen.blit(kukei, (0,0))
