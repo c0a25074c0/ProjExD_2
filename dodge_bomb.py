@@ -51,9 +51,6 @@ def gameover(screen: pg.Surface) -> None:
     time.sleep(5)  # 画面を５秒表示
     return 
     
-def init_bb_imgs() -> tuple[list[pg.Surface], list[int]]:
-    
-
 def main():
     pg.display.set_caption("逃げろ！こうかとん")
     screen = pg.display.set_mode((WIDTH, HEIGHT))
