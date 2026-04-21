@@ -37,19 +37,21 @@ def gameover(screen: pg.Surface) -> None:
     泣いているこうかとんの画像を表示する。
     """
 
-    kukei = pg.Surface((1100,650))
-    pg.draw.rect(kukei, (0,0,0), (0, 0, WIDTH, HEIGHT))
-    kukei.set_alpha(200)
-    fonto = pg.font.Font(None,80)
-    txt = fonto.render("Game Over", True, (255,255,255))
-    kukei.blit(txt, (400,300))
-    kk_img2 = pg.image.load("fig/8.png")
-    kukei.blit(kk_img2, (340,290))
-    kukei.blit(kk_img2, (710,290))
-    screen.blit(kukei, (0,0))
-    pg.display.update()
-    time.sleep(5)
+    kukei = pg.Surface((1100,650))  # 空のsurfaceの作成
+    pg.draw.rect(kukei, (0,0,0), (0, 0, WIDTH, HEIGHT))  # 黒い矩形の描画
+    kukei.set_alpha(200)  # １のSurfaceの透明度の設定
+    fonto = pg.font.Font(None,80)  # フォントサイズの設定
+    txt = fonto.render("Game Over", True, (255,255,255))  # 白文字でGame Overと書かれたフォントSurfaceの作成
+    kukei.blit(txt, (400,300))  # １のSurfaceにblit
+    kk_img2 = pg.image.load("fig/8.png")  # こうかとんの画像のロード
+    kukei.blit(kk_img2, (340,290))  # こうかとんの座標の設定
+    kukei.blit(kk_img2, (710,290))  #こうかとんの座標の設定
+    screen.blit(kukei, (0,0))  # SurfaceをスクリーンSurfaceに転送
+    pg.display.update()  # 画面の更新
+    time.sleep(5)  # 画面を５秒表示
     return 
+    
+def init_bb_imgs() -> tuple[list[pg.Surface], list[int]]:
     
 
 def main():
@@ -75,8 +77,8 @@ def main():
             if event.type == pg.QUIT: 
                 return
         if kk_rct.colliderect(bb_rct):  # こうかトンと爆弾の衝突判定
-            print("ゲームオーバー")
-            gameover(screen)
+            print("ゲームオーバー")  
+            gameover(screen)  # 関数の呼び出し
             return  # ゲームオーバーの意味でmain関数から出る
         screen.blit(bg_img, [0, 0]) 
 
